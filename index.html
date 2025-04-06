@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My Sweet Home</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+    >
+      <a-asset-item id="tree" src="3d_location/scene.gltf"> </a-asset-item>
+
+      <a-entity
+        look-at="[gps-camera]"
+        position="0 50 0"
+        scale="2 2 2"
+        rotation="0 0 0"
+        gltf-model="#tree"
+        gps-entity-place="latitude:53.230567932128906; longitude:-4.122082233428955;"
+      >
+      </a-entity>
+
+      <a-text
+        value="My Sweet Home"
+        look-at="[gps-camera]"
+        position="0 45 0"
+        align="center"
+        scale="10 10 10"
+        color="#18e6ed"
+        gps-entity-place="latitude:53.230567932128906; longitude:-4.122082233428955;"
+      >
+      </a-text>
+
+      <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
+  </body>
+</html>
